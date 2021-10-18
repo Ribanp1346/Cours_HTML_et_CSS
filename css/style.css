@@ -1,0 +1,125 @@
+/*
+-reset css
+-tailles
+-marges
+-padding
+-link
+1px=0.06rem
+*/
+
+html{ /*sélecteur(élément) propriété valeur*/
+    font-size: 62.5%;/*10.000rem root em 10px*/
+}
+body{
+    font: 1.6rem sans-serif; /* 16px */
+    margin: 0;
+}
+
+h1,h2,h3,p,ol,ul,figure,dl{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+h1,h2,h3{
+    font-weight: normal;
+}
+/* thème*/
+/*palette graphique*/
+:root{
+    --color-default: rgb(0, 0, 0);
+    --color-header-text: #fff ;
+    --color-primary:#5298c6;
+    --color-alert:#c0392b;
+    --color-sucess:#068a22;
+    --color-warning:rgba(253,203,110,1.0);
+}
+/* variable appelée*/
+header{
+    background-color: var(--color-default);
+    line-height: 6.0rem;
+}
+header > h1{
+    color: var(--color-header-text);
+    text-align: center;
+}
+main{
+    max-width: 80.0rem;
+    border: solid .1rem transparent;
+    padding: 1.0rem;
+    margin: 5.0rem auto 1.0rem;
+    box-shadow: 0 0 1.0rem rgb(161,159,159);
+}
+figure > img{
+    display: block;
+    width: 100%;
+    margin: .1rem;
+}
+section h2, section figure figcaption h3{
+    background-color: var(--color-primary);
+    color: var(--color-header-text);
+    line-height: 4.5rem;
+    padding: .5rem;
+    font-size: x-large;
+}
+section p{
+    line-height: 2.6rem;
+}
+/* placer les icones*/
+section h2::before{
+    content: '\2714';
+    margin-right: .3rem;
+}
+main section + section h2{
+    background-color: var(--color-alert);
+}
+main section:last-child h2{
+    background-color: #ccc;
+    color: #222;
+}
+main section:nth-child(2) h2{
+    background-color: var(--color-sucess);
+}
+main section:nth-of-type(3) h2{
+    background-color: var(--color-warning);
+    color: #222;
+}
+main section:nth-child(5) h2{
+    background-color: #ccc;
+    color: #222;
+}
+section figure figcaption h3{
+    background-color: rgb(245,135,9);
+    color: #222;
+}
+footer *{
+    text-align: center;
+    color: #999;
+}
+/* responsive*/
+@media screen and (max-width:70.0rem){
+    main,footer{
+        margin: .1rem;
+    }
+    header h1{
+        background-color: rgb(189, 40, 40);
+        font-size: x-large;
+    }
+    section h2, section figure figcaption h3{
+        font-size: large;
+    }
+    section figure figcaption p, section p {
+        text-align: justify;
+    }
+    footer{
+        min-height: 20vh; /* hauteur 1/20 d'écran */
+        display: grid;
+        align-items: center;
+    }
+}
+@media screen and(orientation:landscape) {
+    header h1{
+        background-color: #222;
+        font-size: xx-large;
+    }
+}
